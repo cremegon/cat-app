@@ -1,11 +1,11 @@
-import CatComponent from "../src/cat";
+import DogComponent from "../src/dog";
 import "../src/style.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Random Cat Pictures</h1>
-      <CatComponent />
+      <h1>Random Dog Pictures</h1>
+      <DogComponent />
     </div>
   );
 }

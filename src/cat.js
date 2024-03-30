@@ -12,7 +12,7 @@ const CatComponent = () => {
       );
       const data = await response.json();
       console.log(data);
-      if (data && data[0] && data[0].url) {
+      if (data && data[0].url) {
         setCatUrl(data[0].url);
       } else {
         console.error("No cat pictures found");
@@ -32,7 +32,7 @@ const CatComponent = () => {
       {loading ? (
         <div> Loading...</div>
       ) : (
-        catUrl && <img src={catUrl} alt="Random Cat" className="cat-pic" />
+        <img src={catUrl} alt="Random Cat" className="cat-pic" />
       )}
     </div>
   );

@@ -7,3 +7,25 @@
   width: auto;
   height: 300px;
 }
+
+.dog-pic {
+  width: 300px;
+  height: 300px;
+}
+
+.container-fetch {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-container {
+  margin-top: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-box {
+  margin-top: 20px;
+  width: 300px;
+}
