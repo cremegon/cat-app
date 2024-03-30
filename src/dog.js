@@ -1,10 +1,22 @@
 import { React, useState } from "react";
+import { auth } from '../src/firebase'
+import { useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
 
 const DogComponent = () => {
   const [commentState, setCommentState] = useState(false);
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
   const [dogUrl, setDogUrl] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogout = async() => {
+      await signOut(auth);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      navigate("/login");
+  }
 
   const handleInput = (event) => {
     event.preventDefault();
@@ -33,10 +45,13 @@ const DogComponent = () => {
     } catch (error) {
       console.error("Error fetching Dogs", error);
     }
+    setCommentList([])
   };
 
   return (
     <div className="container-fetch">
+      <button onClick={handleLogout} className="btn-logout">Logout</button>
+      <h1>Random Dog Pictures</h1>
       <img src={dogUrl} alt="Random Dog" className="dog-pic" />
       <div className="btn-container">
         <button onClick={fetchDog} className="btn-dog">
